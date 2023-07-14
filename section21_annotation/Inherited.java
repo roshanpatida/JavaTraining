@@ -11,7 +11,7 @@ package section21_annotation;
 
 //import java.lang.annotation.Annotation;
 
-@interface MyAnno
+@interface MyAnno44
 {
     String name();
     String project();

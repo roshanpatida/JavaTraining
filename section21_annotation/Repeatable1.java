@@ -9,10 +9,9 @@ package section21_annotation;
  * @author roshan_patidar
  */
 
-import java.lang.annotation.Annotation;
 import java.lang.annotation.Repeatable;
-@Repeatable
-@interface MyAnno3
+//@Repeatable
+@interface MyAnno31
 {
     String name();
     String project();
