@@ -14,8 +14,8 @@ public class Copying3 {
     public static void main(String[] args) {
         try{
             try{
-                FileInputStream fin=new FileInputStream("/home/roshan_patidar/FileOutputStream/OutputStream/txt");
-                FileOutputStream fout=new FileOutputStream("/home/roshan_patidar/FileOutputStream/Destination/txt");
+                FileInputStream fin=new FileInputStream("/home/roshan_patidar/FileOutputStream/OutputStream.txt");
+                FileOutputStream fout=new FileOutputStream("/home/roshan_patidar/FileOutputStream/Destination.txt");
                 int a;
                 while((a=fin.read())!=-1){
                     fout.write(a);
@@ -23,7 +23,7 @@ public class Copying3 {
             }catch(Exception e){}
         }catch(Exception e){}
         try{
-            try(FileInputStream fin3=new FileInputStream("/home/roshan_patidar/FileOutputStream/Destination/txt")){
+            try(FileInputStream fin3=new FileInputStream("/home/roshan_patidar/FileOutputStream/Destination.txt")){
                 byte[] b=new byte[fin3.available()];
                 fin3.read(b);
                 String str=new String(b);

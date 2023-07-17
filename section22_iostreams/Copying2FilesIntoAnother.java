@@ -11,16 +11,22 @@ import java.io.*;
 public class Copying2FilesIntoAnother {
     public static void main(String[] args)throws Exception{
 try{
-        FileInputStream fis1=new FileInputStream("/home/roshan_patidar/FileOutputStream/OutputStream/txt");
-                FileInputStream fis2=new FileInputStream("/home/roshan_patidar/FileOutputStream/Output/txt");
+        FileInputStream fis1=new FileInputStream("/home/roshan_patidar/FileOutputStream/OutputStream.txt");
+                FileInputStream fis2=new FileInputStream("/home/roshan_patidar/FileOutputStream/Output.txt");
         
-    FileOutputStream fos = new FileOutputStream("/home/roshan_patidar/FileOutputStream/Destination/txt");
+    FileOutputStream fos = new FileOutputStream("/home/roshan_patidar/FileOutputStream/Destination.txt");
     SequenceInputStream sis = new SequenceInputStream(fis1,fis2);
     int b;
     while((b=sis.read())!=-1){
         fos.write(b);
     
     }
+    try(FileInputStream fin3=new FileInputStream("/home/roshan_patidar/FileOutputStream/Destination.txt")){
+                byte[] c=new byte[fin3.available()];
+                fin3.read(c);
+                String str=new String(c);
+                System.out.print(str);
+    }catch (FileNotFoundException e){System.out.println(e);}
     
     fis1.close();
     fis2.close();
