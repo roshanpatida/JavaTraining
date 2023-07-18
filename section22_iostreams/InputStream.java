@@ -36,4 +36,8 @@ public class InputStream {
         
       fos.close();
     }
+
+    int read() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
