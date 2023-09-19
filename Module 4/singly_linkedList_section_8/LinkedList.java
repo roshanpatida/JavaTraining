@@ -9,8 +9,8 @@ class LinkedList {
     int value;
     Node next;
 
-    Node(int d) {
-      value = d;
+    Node(int data) {
+      value = data;
       next = null;
     }
   }
