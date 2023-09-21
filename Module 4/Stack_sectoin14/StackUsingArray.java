@@ -42,6 +42,7 @@ public class StackUsingArray {
               
           }
       }
+      
     public static void main(String[] args) {
         StackUsingArray n = new StackUsingArray(4);
         boolean result =  n.isFull();
