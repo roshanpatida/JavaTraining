@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">    
+    
+   <bean class="com.spring.ref.B"  name="bref">
+   <property name="y" value="90" />
+   </bean>
+   
+   
+   
+   
+   
+   <!--  first way of code bean -->
+   <!-- <bean class="com.spring.ref.A" name="aref">
+   <property name="x" value="12"/>
+    -->
+    
+    
+   <!-- first way of property -->
+   <!-- <property name="ob">
+   <ref bean="bref"/>
+   </property>
+    -->
+   
+   <!-- second way of property -->
+  <!--  <property name ="ob" ref="bref"/>
+  
+  -->
+     <!--  </bean> -->
+      
+      
+      
+      <!--  second way of bean write -->
+      <bean class="com.spring.ref.A" name="aref" p:x="33" p:ob-ref="bref"/>
+      
+   </beans>
+ 

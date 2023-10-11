@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">    
+    
+   <!--  list stand alone -->
+   <util:list list-class="java.util.LinkedList" id="mybestfriend">
+   <value>Roshan</value>
+   <value>Harshit</value>
+   <value>Abhigyan</value>
+   <value>Swpanil</value>
+   <value>Shyam</value>
+   
+   
+   </util:list>
+   
+   <!--  map stand Alone -->
+  <util:map map-class="java.util.HashMap"  id="fee">
+ <entry key="python" value="8080"/>
+ <entry key="java" value="848484"/>
+ <entry key="c" value="848484"/>
+ <entry key="ja" value="844"/>
+ <entry key="javddddda" value="8"/>
+  
+ </util:map>
+
+
+<!--  property stand alone -->
+<util:properties id="props"> 
+<prop key="Driver"> com.mysql.jdbc.driver </prop>
+<prop key="Sqlsite"> https://sql</prop>
+<prop key="hekko"> hekeoo.com</prop>
+
+</util:properties>   
+   
+   
+   
+   
+   <bean name="emp1" class = "com.spring.stanalone.collection.Person"> 
+     <property name="friends" ref="mybestfriend"/>
+  <property name= "feestructure" ref="fee"/>
+  <property name="properties" ref="props"/>
+  </bean>
+   </beans>
+

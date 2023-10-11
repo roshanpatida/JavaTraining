@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">    
+    
+    <!--  this is our bean -->
+    <!-- <bean class="com.spring.Student" name="student1" > -->
+    <!--  this is a first way to set value as a element -->
+    
+    <!--  <property name="studentId">  
+    <value>22344</value>
+    </property>
+    
+    <property name="studentName">
+    <value>Roshan Patidar</value>
+    </property>
+    
+    <property name="studentAddress">
+    <value>Delhi</value>
+    </property>
+      -->
+      
+      <!--  this is a second way to set value as a attributes  -->
+   
+   <!--    <property name="studentId" value="22344"/>  
+    
+  
+    
+    <property name="studentName" value="Roshan Patidar"/>
+       
+    <property name="studentAddress" value="Delhi"/>
+
+    -->
+    
+    
+    <!--  this is way to set value as a p schema -->
+    <bean class="com.spring.Student" name="student1" p:studentId="22344" p:studentName="Roshan Patidar" p:studentAddress="Indore"/>
+      <bean class="com.spring.Student" name="student2" p:studentId="1111" p:studentName="Harshit Ranawat" p:studentAddress="Jhabua"/> 
+    
+  
+    
+  <!--   </bean> -->
+</beans>
+

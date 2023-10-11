@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">    
+   
+   <context:component-scan base-package="com.spring.stereotype"></context:component-scan>
+   <!--  use of @Component annotation we not need to assign class in the bean  it mean component does automatically create the object of that class in xml file 
+    and we can assign value also in the class directly it mean through the help of @Value annotation it fetch the value of that.  -->
+   
+  <util:list list-class= "java.util.ArrayList"  id="address">
+  <value> Lucknow</value>
+  <value>Indore</value>
+  <value>Mhow</value>
+  <value>Surat</value>
+  <value>My class </value>
+  <!--  we put the values of collection type object with the help of id and just write id in the value tag directly with the formate of @Value("#{id name}")     which is directly assign in the variable and  -->
+  
+  </util:list>
+ <!--  
+  <bean class="com.spring.stereotype.Teacher" name = "student" scope="prototype">
+  // we acan write it aslo but annocation is short solution of this thing
+   </bean>
+   -->
+  
+   </beans>
+
