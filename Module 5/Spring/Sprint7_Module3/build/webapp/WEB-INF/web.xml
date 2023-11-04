@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+  <servlet>
+    <description></description>
+    <display-name>HelloProgram</display-name>
+    <servlet-name>HelloProgram</servlet-name>
+    <servlet-class>sevletconnectivity.HelloProgram</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloProgram</servlet-name>
+    <url-pattern>/HelloProgram</url-pattern>
+  </servlet-mapping>
+  <display-name>Sprint7_Module3</display-name>
+  <context-param>
+    <param-name>max-shopping-cart-size</param-name>
+    <param-value>99</param-value>
+  </context-param>
+  <context-param>
+    <param-name>project-team-name</param-name>
+    <param-value>The Coding Gurus</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>form_servlet</display-name>
+    <servlet-name>form_servlet</servlet-name>
+    <servlet-class>sevletconnectivity.form_servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>form_servlet</servlet-name>
+    <url-pattern>/form_servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>paramtest</display-name>
+    <servlet-name>paramtest</servlet-name>
+    <servlet-class>sevletconnectivity.paramtest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>paramtest</servlet-name>
+    <url-pattern>/paramtest</url-pattern>
+  </servlet-mapping>
+</web-app>
