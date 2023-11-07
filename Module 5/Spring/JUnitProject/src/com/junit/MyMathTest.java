@@ -17,6 +17,8 @@ class MyMathTest {
 	int expectedResult = 6;
 	assertEquals(expectedResult, result);
 		// its successful testing 
+	// now our git us successfully commited
+	// this is folder changing
 	}
 
 }
