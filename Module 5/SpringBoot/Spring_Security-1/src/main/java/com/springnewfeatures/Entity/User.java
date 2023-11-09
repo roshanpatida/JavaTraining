@@ -1,9 +1,20 @@
 package com.springnewfeatures.Entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "spring_security_before")
 public class User {
+	
+@Id
 private String username;
 private String about;
-private String email;
+private String password;
+private String role;
 public String getUsername() {
 	return username;
 }
@@ -16,17 +27,24 @@ public String getAbout() {
 public void setAbout(String about) {
 	this.about = about;
 }
-public String getEmail() {
-	return email;
+public String getPassword() {
+	return password;
 }
-public void setEmail(String email) {
-	this.email = email;
+public void setPassword(String password) {
+	this.password = password;
 }
-public User(String username, String about, String email) {
+public String getRole() {
+	return role;
+}
+public void setRole(String role) {
+	this.role = role;
+}
+public User(String username, String about, String password, String role) {
 	super();
 	this.username = username;
 	this.about = about;
-	this.email = email;
+	this.password = password;
+	this.role = role;
 }
 public User() {}
 }

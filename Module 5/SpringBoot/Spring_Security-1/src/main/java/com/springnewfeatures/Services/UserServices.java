@@ -14,9 +14,9 @@ public class UserServices {
 	
 	// just I create the fake api which is checked for security request
 	public UserServices() {
-		list.add(new User("roshan" ,"Devloper","roshan.patidar@brainvire.com"));
-		list.add(new User("deepak" ,"Devloper","roshan.patidar@brainvire.com"));
-		list.add(new User("abhi" ,"Devloper","roshan.patidar@brainvire.com"));
+//		list.add(new User("roshan" ,"Devloper","roshan.patidar@brainvire.com"));
+//		list.add(new User("deepak" ,"Devloper","roshan.patidar@brainvire.com"));
+//		list.add(new User("abhi" ,"Devloper","roshan.patidar@brainvire.com"));
 	}
 	
 	public List<User> getAllUser(){
