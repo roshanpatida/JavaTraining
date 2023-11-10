@@ -27,7 +27,7 @@ public class UserController {
 	public User getSingleUser(@PathVariable("username") String username) {
 //		return this.services.getSingleUser(username); // this is for without JPA
 		
-		User user = this.repository.findByUserName(username);
+		User user = this.repository.findByUsername(username);
 		return user;
 	}
 	

@@ -12,6 +12,6 @@ import java.util.List;
 @EnableJpaRepositories
 public interface UserRepository  extends JpaRepository<User,String>{
 	
-	 public User findByUserName(String username);
+	 public User findByUsername(String username);
 
 }
