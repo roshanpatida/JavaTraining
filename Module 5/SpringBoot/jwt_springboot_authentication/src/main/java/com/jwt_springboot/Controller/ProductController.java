@@ -18,8 +18,11 @@ public class ProductController {
 	public String addNew(@RequestBody UserInfo user) {
 	
 	return infoRepository.save(user);
+//	return infoRepository.save(user);
 	}
 	public String productHome() {
 		return "product home page";
 	}
 }
+
+
