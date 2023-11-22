@@ -22,14 +22,14 @@ public class CostomUserDetails  implements UserDetails{
 		
 			// TODO Auto-generated constructor stub
 	    
-
-	public CostomUserDetails(UserInfo user) {
-		  name=user.getName();
-	        password=user.getPassword();
-	        authorities= Arrays.stream(user.getRoles().split(","))
+	    public CostomUserDetails(UserInfo userInfo) {
+	        name=userInfo.getName();
+	        password=userInfo.getPassword();
+	        authorities= Arrays.stream(userInfo.getRoles().split(","))
 	                .map(SimpleGrantedAuthority::new)
 	                .collect(Collectors.toList());
-	}
+	    }
+
 	    
 	    
 
