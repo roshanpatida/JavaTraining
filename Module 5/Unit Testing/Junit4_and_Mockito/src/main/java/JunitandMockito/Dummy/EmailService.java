@@ -1,4 +1,4 @@
-package Unit_testing_Mockito.Dummy;
+package JunitandMockito.Dummy;
 
 public interface EmailService {
 

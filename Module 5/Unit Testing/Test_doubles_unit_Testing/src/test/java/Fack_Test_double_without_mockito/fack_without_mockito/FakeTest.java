@@ -7,10 +7,10 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 import Fack_Test_double_without_mockito.Dummy.DummyEmailService;
-import Unit_testing_Mockito.Dummy.EmailService;
-import Unit_testing_Mockito.fake.Book;
-import Unit_testing_Mockito.fake.BookRepository;
-import Unit_testing_Mockito.fake.BookService;
+import Unit_testing_Without_Mockito.Dummy.EmailService;
+import Unit_testing_Without_Mockito.fake.Book;
+import Unit_testing_Without_Mockito.fake.BookRepository;
+import Unit_testing_Without_Mockito.fake.BookService;
 
 public class FakeTest {
 

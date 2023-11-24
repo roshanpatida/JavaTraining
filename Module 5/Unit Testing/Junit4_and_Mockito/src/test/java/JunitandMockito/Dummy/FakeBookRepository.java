@@ -1,11 +1,8 @@
-package Fack_Test_double_without_mockito.fack_without_mockito;
+package JunitandMockito.Dummy;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import Unit_testing_Without_Mockito.fake.Book;
-import Unit_testing_Without_Mockito.fake.BookRepository;
 
 public class FakeBookRepository implements BookRepository{
 

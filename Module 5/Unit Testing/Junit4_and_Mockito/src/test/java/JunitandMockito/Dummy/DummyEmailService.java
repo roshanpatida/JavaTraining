@@ -1,6 +1,6 @@
-package Fack_Test_double_without_mockito.Dummy;
+package JunitandMockito.Dummy;
 
-import Unit_testing_Without_Mockito.Dummy.EmailService;
+
 
 public class DummyEmailService implements EmailService{
 

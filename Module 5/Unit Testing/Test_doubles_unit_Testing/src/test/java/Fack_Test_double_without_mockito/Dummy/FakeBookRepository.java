@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import Unit_testing_Mockito.fake.Book;
-import Unit_testing_Mockito.fake.BookRepository;
+import Unit_testing_Without_Mockito.fake.Book;
+import Unit_testing_Without_Mockito.fake.BookRepository;
 
 public class FakeBookRepository implements BookRepository{
 

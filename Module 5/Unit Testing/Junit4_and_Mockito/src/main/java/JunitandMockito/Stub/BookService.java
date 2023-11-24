@@ -1,8 +1,7 @@
-package Unit_testing_Wothout_Mockito.Stub;
+package JunitandMockito.Stub;
 
 import java.util.List;
 
-import Unit_testing_Without_Mockito.Dummy.EmailService;
 
 public class BookService {
 
