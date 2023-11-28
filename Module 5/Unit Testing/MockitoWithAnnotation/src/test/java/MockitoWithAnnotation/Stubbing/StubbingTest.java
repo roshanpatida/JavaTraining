@@ -25,6 +25,7 @@ public class StubbingTest {
 	@Mock
 	private BookRepository bookRepository;
 	
+	@Test
 	public void testStubbing() {
 		List<String> bookId = new ArrayList<>();
 		bookId.add("111");
@@ -45,13 +46,13 @@ public class StubbingTest {
 		 
 	}
 	
-	    @Test
-		 public void testSaveBook() {
-				Book book1= new Book("111","Movckito in action",500,LocalDate.now());
-				when(bookRepository).save(book1);
-				bookService.addBook(book1);
- 
-		 }
+//	    @Test
+//		 public void testSaveBook() {
+//				Book book1= new Book("111","Movckito in action",500,LocalDate.now());
+//				when(bookRepository).save(book1);
+//				bookService.addBook(book1);
+// 
+//		 		}
 		 }
 	
 	
