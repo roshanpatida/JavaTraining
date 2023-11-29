@@ -1,6 +1,7 @@
 package MockitoWithAnnotation.ExceptionHandling;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
@@ -12,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
@@ -21,6 +21,8 @@ public class ExceptionHandlingTest {
 
 	@InjectMocks
 	private BookService bookService;
+	
+	
 	@Mock
 	private BookRepository bookRepository;
 	

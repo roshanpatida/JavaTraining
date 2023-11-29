@@ -39,7 +39,7 @@ public class StubTestUsingAnnotation {
 	when(bookRepository.findNewBooks(7)).thenReturn((List<Book>) newBooks);
 		
 		List<Book> NewBooksWithAppliedDiscount = bookService.getNewBooksWithAppliedDiscount(10, 7);
-		
+			
 		assertEquals(2, NewBooksWithAppliedDiscount.size());
 		assertEquals(450, NewBooksWithAppliedDiscount.get(0).getPrice());
 		assertEquals(360, NewBooksWithAppliedDiscount.get(1).getPrice());
