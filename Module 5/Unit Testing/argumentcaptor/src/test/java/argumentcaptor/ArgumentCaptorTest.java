@@ -25,7 +25,7 @@ public class ArgumentCaptorTest {
 	private BookRepository bookRepository;
 	 
 	@Captor
-	private ArgumentCaptor<Book> bookArgumentCaptor;
+	private ArgumentCaptor<Book> bookArgumentCaptor; // it saves the data in the captor and at the time of requirement we can access that using captor data.
 	
 	
 	
