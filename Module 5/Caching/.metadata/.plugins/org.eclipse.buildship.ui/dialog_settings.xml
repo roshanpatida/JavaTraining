@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.buildship.ui.wizard.project.creation">
+		<item key="project_location" value="/home/roshan_patidar/Projects/JavaTraining/Module 5/Caching/cachingprogram"/>
+		<item key="use_default_location" value="true"/>
+		<item key="apply_working_sets" value="true"/>
+		<list key="working_sets">
+		</list>
+	</section>
+</section>

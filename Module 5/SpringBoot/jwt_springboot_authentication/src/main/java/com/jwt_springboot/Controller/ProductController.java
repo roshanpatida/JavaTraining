@@ -34,7 +34,7 @@ public class ProductController {
     }
 
     @PostMapping("/new")
-    public String addNewUser(@RequestBody UserInfo userInfo) {
+    public String addNewUser(@RequestBody UserInfo userInfo) { // RequestBody will change the object type to url.
         return service.addUser(userInfo);
     }
 

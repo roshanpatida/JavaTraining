@@ -1,5 +1,7 @@
 package com.mongodb.connectivity.Controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.connectivity.Entity.Student;
-import com.mongodb.connectivity.Repository.Repository;
+import com.mongodb.connectivity.Repository.StudentRepository;
 
 @RestController
 
@@ -20,7 +22,7 @@ import com.mongodb.connectivity.Repository.Repository;
 public class MyController {
 
 	@Autowired
-	private Repository repository;
+	private StudentRepository repository;
 
 	@PostMapping("/add")
 	public ResponseEntity<?> addStudents(@RequestBody Student student) {
@@ -44,5 +46,13 @@ public class MyController {
 		student.setId(id); // it just set data from student to the mentioned id.
 		this.repository.save(student);
 	}
+    
+    @GetMapping("/getById/{studentId}")
+    public Optional<Student> getMatterial(@PathVariable("id") int id) {
+    	return this.repository.findById(id);
+    	
+    	
+    }
+    
 
 }
