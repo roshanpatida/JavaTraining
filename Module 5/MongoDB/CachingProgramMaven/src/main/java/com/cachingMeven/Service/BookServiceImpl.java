@@ -41,6 +41,9 @@ public class BookServiceImpl implements BookService {
 	        return book;
 	    }
 
+		 
+	 
+
 
 	@Override
 	@Cacheable(cacheNames = "books", key = "#id")
@@ -61,5 +64,25 @@ public class BookServiceImpl implements BookService {
 		return "deleted data";
 	}
 
+	@Override
+	@CachePut(cacheNames = "books", key = "#book.id")
+	public Book updateBook(Book book) {
+		Optional<Book> existingBook = bookRepository.findById(book.getId());
+        if (existingBook.isPresent()) {
+            Book updatedBook = existingBook.get();
+            updatedBook.setName(book.getName());
+            updatedBook.setCategory(book.getCategory());
+            updatedBook.setAuthor(book.getAuthor());
+            updatedBook.setPublisher(book.getPublisher());
+            bookRepository.save(updatedBook);
+            logger.info("Book updated with new details");
+
+            return updatedBook;
+        } 
+        else {
+            logger.warn("Book not found with id - {}", book.getId());
+            return null;
+        }
+	}
 	
 }
