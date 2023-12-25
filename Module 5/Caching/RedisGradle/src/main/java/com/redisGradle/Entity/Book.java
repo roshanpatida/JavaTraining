@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "GradleCaching")
-public class Book implements Serializable{
+public class Book implements Serializable{ // we can create the pojo class for serializable interface.
 	@Id
 	private long id;
 	private String name;

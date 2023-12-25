@@ -5,7 +5,7 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Redis")
+@Document(collection = "RedisDatabase")
 public class Book implements Serializable{ // we can create the pojo class for serializable interface.
 	@Id
 	private long id;
