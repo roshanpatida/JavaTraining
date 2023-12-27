@@ -1,0 +1,17 @@
+spring:
+  rsocket:
+    server:
+      port: 8081
+      
+  datasource:
+    url: jdbc:postresql://localhost:5432/HotelServiceMicro
+    username: postgres
+    password: 123456
+    
+    
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+   

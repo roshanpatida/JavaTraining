@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.microservicesUserService.Entity.User;
 import com.microservicesUserService.Exception.ResourceNotFoundException;
 import com.microservicesUserService.Repository.UserRepository;
 import com.microservicesUserService.Service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
