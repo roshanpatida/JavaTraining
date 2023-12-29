@@ -6,9 +6,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/HotelServiceMicro
     username: postgres
     password: 123456  
-    
-    
-    
      
   jpa:
     hibernate:
@@ -17,3 +14,15 @@ spring:
     properties:
       hibernate:
       dialect: org.hibernate.dialect.mySQL8Dialect
+      
+  application:
+    name: HOTEL-SERVICE
+    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true      

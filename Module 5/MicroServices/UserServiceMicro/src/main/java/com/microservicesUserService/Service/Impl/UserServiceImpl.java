@@ -31,10 +31,15 @@ public class UserServiceImpl implements UserService {
 		return repository.findAll();
 	}
 
+	
+	// get single user
 	@Override
 	public User getUser(String userId) {
-		return repository.findById(userId).orElseThrow(
+		// get user from database with the help of user repository
+		User user = repository.findById(userId).orElseThrow(
 				() -> new ResourceNotFoundException("User with given id is not fount on server : " + userId));
+		// fetch rating of above user from rating service
+		return user;
 	}
 
 	@Override
