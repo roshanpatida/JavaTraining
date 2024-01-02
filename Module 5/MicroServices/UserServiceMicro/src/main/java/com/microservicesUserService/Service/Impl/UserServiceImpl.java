@@ -17,6 +17,7 @@ import com.microservicesUserService.Entity.Hotel;
 import com.microservicesUserService.Entity.Rating;
 import com.microservicesUserService.Entity.User;
 import com.microservicesUserService.Exception.ResourceNotFoundException;
+import com.microservicesUserService.ExternalService.HotelService;
 import com.microservicesUserService.Repository.UserRepository;
 import com.microservicesUserService.Service.UserService;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
@@ -31,6 +32,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private HotelService  hotelService;
 	
 	private Logger logger = (Logger) LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -72,9 +76,15 @@ public class UserServiceImpl implements UserService {
 		//	http://localhost:8082/hotels/2 // is this use 
 			
 		System.out.println(rating.getHotelId());
-			ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(),Hotel.class);
-					Hotel hotel = forEntity.getBody();
-				
+		
+//		//[ " this is for fetch hotel without feign client interface use.
+//			ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(),Hotel.class);
+//					Hotel hotel = forEntity.getBody();
+//			//]	
+		
+		Hotel hotel = hotelService.getHotels(rating.getHotelId());
+		
+		
 		// set the hotel to ratings
 			rating.setHotel(hotel);
 			return rating;
