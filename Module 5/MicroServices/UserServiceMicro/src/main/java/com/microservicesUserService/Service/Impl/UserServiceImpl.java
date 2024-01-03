@@ -36,8 +36,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private HotelService  hotelService;
 	
-	private Logger logger = (Logger) LoggerFactory.getLogger(UserServiceImpl.class);
-
 	@Override
 	public User saveUser(User user) {
 		String randomUserId = UUID.randomUUID().toString(); // generate unique useId in string form
@@ -67,7 +65,6 @@ public class UserServiceImpl implements UserService {
 //		ArrayList forObject =  restTemplate.getForObject("http://localhost:8083/ratings/users/9fb029f1-1da7-48ca-80a8-f22e21fd41c2", ArrayList.class); // atatic form of
 		
 		Rating[] ratingOfUser =  restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);  //dynamic form of
-		logger.info("{} ", ratingOfUser);
 		
 		
 		List<Rating> ratings = Arrays.stream(ratingOfUser).toList();

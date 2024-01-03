@@ -27,7 +27,7 @@ public interface RatingService {
 	
 	//put
 	@PutMapping("ratings/{ratingId}") // if passing parameter are same so we not need to write parameter again with pathVariable
-	public Rating updateRating(@PathVariable String ratingId, Rating rating );
+	public Rating updateRating(@PathVariable String ratingId,@RequestBody Rating rating );
 	
 	
 	//Delete 
