@@ -30,3 +30,52 @@ spring:
 #      defaultZone: http://localhost:8761/eureka
 #  instance:
 #    prefer-ip-address: true
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: 
+        - health
+  endpoint:
+    health:
+      show-details: always
+      # this is for circuit breaker configuration
+resilience4j:
+  circuitbreaker:
+    instances:
+       ratingHotelBreaker:
+         register-health-indicator: true
+         event-consumer-buffer-size: 10
+         failure-rate-threshold: 50
+         minimum-number-of-calls: 5
+         automatic-transition-from-open-to-half-open-enabled: true
+         wait-duration-in-open-state: 6s
+         permitted-number-of-calls-in-half-open-state: 3
+         sliding-window-size: 10
+         sliding-window-type: COUNT_BASED 
+    
+    
+    
+    # this is for retry configuration
+  retry:
+    instances:
+      ratingHotelService:
+        max-attempts: 3
+        wait-duration: 5s
+         
+     # this is for rateLimiter
+     
+  ratelimiter:
+    instances:
+      userRateLimiter:
+        limit-refresh-period: 4s
+        limit-for-period: 2
+        timeout-duration: 0s            
+         
+   
+   
+         

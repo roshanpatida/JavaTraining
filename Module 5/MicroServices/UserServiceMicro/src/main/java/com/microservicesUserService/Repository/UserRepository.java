@@ -9,5 +9,5 @@ public interface UserRepository  extends JpaRepository<User, String>{
 
 	
 	//if you want to implements any custom method or query 
-	//
+	
 }

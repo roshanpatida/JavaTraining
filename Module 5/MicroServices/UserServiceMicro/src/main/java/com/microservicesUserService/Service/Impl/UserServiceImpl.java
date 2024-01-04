@@ -105,6 +105,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUser(User user, String userId) {
 		// TODO Auto-generated method stub
+		
 
 	}
 
