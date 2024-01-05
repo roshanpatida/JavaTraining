@@ -25,6 +25,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+	
 	@Autowired
 	private UserService userService;
 

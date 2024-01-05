@@ -64,6 +64,8 @@ public class UserServiceImpl implements UserService {
 		// it just static form of rating means se can fetch the rating of only set userId in the url.
 //		ArrayList forObject =  restTemplate.getForObject("http://localhost:8083/ratings/users/9fb029f1-1da7-48ca-80a8-f22e21fd41c2", ArrayList.class); // atatic form of
 		
+		
+		// using resttemplte we use other service.
 		Rating[] ratingOfUser =  restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);  //dynamic form of
 		
 		

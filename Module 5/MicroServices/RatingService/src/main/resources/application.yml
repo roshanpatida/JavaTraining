@@ -6,8 +6,8 @@ spring:
 
   config:
     import: optional:configserver:http://localhost:8086       
-  application:
-      name: RATING-SERVICE
+#  application:
+#      name: RATING-SERVICE
 #      
 server: 
   port: 8083
@@ -19,4 +19,6 @@ server:
 #    service-url:
 #      defaultZone: http://localhost:8761/eureka
 #  instance:
-#    prefer-ip-address: true        
+#    prefer-ip-address: true   
+
+ 
