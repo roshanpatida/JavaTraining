@@ -1,0 +1,6 @@
+package com.hotel.service;
+
+public interface HotelService {
+	Hotel addHotel(Hotel hotel);
+	
+}

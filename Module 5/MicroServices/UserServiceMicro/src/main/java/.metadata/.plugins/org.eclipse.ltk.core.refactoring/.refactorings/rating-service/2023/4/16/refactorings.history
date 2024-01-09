@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.rating.config&apos; to &apos;hotel-service/src/main/java/com.hotel&apos;&#x0A;- Original project: &apos;rating-service&apos;&#x0A;- Destination element: &apos;hotel-service/src/main/java/com.hotel&apos;&#x0A;- Original element: &apos;rating-service/src/main/java/com.rating.config&apos;" description="Copy package" destination="=hotel-service/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.hotel" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.rating.config" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1682077570472" version="1.0"/>
+</session>

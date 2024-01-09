@@ -1,0 +1,16 @@
+package com.hotel.exception;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.hotel.payload.ApiResponse;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+	@ExceptionHandler(HotelNotFoundException.class)
+	public ResponseEntity<ApiResponse> setHotelNotFoundException() {
+		
+	}
+}

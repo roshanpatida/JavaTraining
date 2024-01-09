@@ -1,0 +1,5 @@
+package com.api.gateway.controller;
+
+public class LoginController {
+
+}

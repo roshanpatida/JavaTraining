@@ -1,0 +1,46 @@
+package com.rating.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.rating.entities.Rating;
+import com.rating.repositories.RatingRepository;
+import com.rating.service.RatingService;
+
+public class RatingServiceImpl implements RatingService {
+
+	@Autowired
+	RatingRepository ratingRepository;
+	
+	@Override
+	public Rating addRating(Rating rating) {
+		// TODO Auto-generated method stub
+		return ratingRepository.save(rating);
+	}
+
+	@Override
+	public List<Rating> getAllRatings() {
+		// TODO Auto-generated method stub
+		return ratingRepository.findAll();
+	}
+
+	@Override
+	public Rating getRatingById(Long ratingId) {
+		// TODO Auto-generated method stub
+		return ratingRepository.findById(ratingId).orElseThrow(() -> new RatingNotFoundException("Rating Not Found"));
+	}
+
+	@Override
+	public Rating updateRating(Rating rating) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rating deleteRating(Long ratingId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

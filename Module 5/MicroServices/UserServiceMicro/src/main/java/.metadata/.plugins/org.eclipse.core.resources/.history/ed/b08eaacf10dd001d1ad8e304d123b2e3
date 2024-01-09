@@ -1,0 +1,21 @@
+package com.hotel.entities;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "micro_hotel")
+public class Hotel {
+	
+	@Id
+	@Column(name = "id")
+	private Long hotel_id;
+	
+	private String name;
+	
+	private String location;
+	
+	private String about;
+}

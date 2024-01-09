@@ -1,0 +1,10 @@
+package com.rating.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "micro_rating")
+public class Rating {
+
+}

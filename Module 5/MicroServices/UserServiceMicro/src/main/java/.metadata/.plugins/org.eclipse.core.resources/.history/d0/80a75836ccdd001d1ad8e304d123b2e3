@@ -1,0 +1,15 @@
+server:
+  port: 8082
+  
+spring:
+  application:
+    name: HOTEL-SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hotelmicroService
+    username: postgres
+    password: postgres
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

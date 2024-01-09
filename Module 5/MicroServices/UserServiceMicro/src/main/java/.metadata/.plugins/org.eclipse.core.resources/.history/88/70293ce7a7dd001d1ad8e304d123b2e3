@@ -1,0 +1,13 @@
+server:
+  port: 8083
+  
+spring:
+  datasource:
+    url: mongodb://localhost:27017
+    username: 
+    password: 
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

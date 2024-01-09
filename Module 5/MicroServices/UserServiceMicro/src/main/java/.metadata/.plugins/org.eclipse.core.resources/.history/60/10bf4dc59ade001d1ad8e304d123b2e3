@@ -1,0 +1,5 @@
+package com.user.service.service.feignclient.service;
+
+public interface RatingService {
+
+}

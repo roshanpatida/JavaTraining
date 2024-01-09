@@ -1,0 +1,9 @@
+server:
+  port: 8081
+  
+spring:
+  datasource:
+    url: jdbc:mysql://loacalhost:3306/usermicroservice
+    username: root
+    password: brainroot 
+    driver-class-name: com.mysql.jdbc.Driver

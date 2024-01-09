@@ -1,0 +1,9 @@
+package com.user.service.payload;
+
+import org.springframework.http.HttpStatus;
+
+public class APIResponse {
+	private String message;
+	private boolean isSuccess;
+	private HttpStatus status;
+}

@@ -1,0 +1,10 @@
+package com.user.service.userservice;
+
+import com.user.service.entities.User;
+
+public interface UserService {
+
+	User createUser(User user);
+	
+	
+}

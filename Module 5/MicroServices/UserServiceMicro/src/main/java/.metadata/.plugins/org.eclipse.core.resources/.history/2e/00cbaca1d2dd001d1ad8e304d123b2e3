@@ -1,0 +1,61 @@
+package com.user.service.impl;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.user.service.entities.User;
+import com.user.service.repositories.UserRepository;
+import com.user.service.service.UserService;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	RestTemplate restTemplate;
+
+	private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+	@Override
+	public User createUser(User user) {
+		// TODO Auto-generated method stub
+		return userRepository.save(user);
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return userRepository.findAll();
+	}
+
+	@Override
+	public User getUserByUserId(Long id) {
+		// TODO Auto-generated method stub
+		User user = userRepository.findById(id)
+				.orElseThrow(() -> new UserNotFoundException("User Not Found Exception"));
+
+		// call the thied party API from the REST Template
+		ResponseEntity<Rating[]> reating = restTemplate.getForEntity("http://localhost:8083/ratings/1", Reating[].class);
+		user.setRatings(reating.getBody());
+		return user;
+	}
+
+	@Override
+	public void deleteUser(Long id) {
+		// TODO Auto-generated method stub
+		userRepository.deleteById(id);
+	}
+
+	@Override
+	public User updateUser(User user) {
+		return userRepository.save(user);
+	}
+
+}

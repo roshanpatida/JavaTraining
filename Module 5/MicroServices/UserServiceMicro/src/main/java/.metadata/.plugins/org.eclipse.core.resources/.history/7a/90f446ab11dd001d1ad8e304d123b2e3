@@ -1,0 +1,8 @@
+package com.hotel.service;
+
+import com.hotel.entities.Hotel;
+
+public interface HotelService {
+	Hotel addHotel(Hotel hotel);
+	
+}

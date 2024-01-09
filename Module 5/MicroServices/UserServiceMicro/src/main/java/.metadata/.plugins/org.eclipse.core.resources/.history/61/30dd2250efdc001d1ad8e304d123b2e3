@@ -1,0 +1,9 @@
+package com.user.service.entities;
+
+
+public class User {
+	private long userId;
+	private String name;
+	private String email;
+	private String about;
+}

@@ -1,0 +1,6 @@
+package com.user.service.payload;
+
+public class APIResponse {
+	private String message;
+	private String status;
+}

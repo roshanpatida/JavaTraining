@@ -1,0 +1,5 @@
+package com.rating.payload;
+
+public class ErrorMessageDTO {
+
+}

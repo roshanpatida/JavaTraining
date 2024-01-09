@@ -1,0 +1,16 @@
+package com.rating.exeception;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.rating.payload.ErrorMessageDTO;
+
+@RestControllerAdvice
+public class GlobalCustomeException {
+
+	@ExceptionHandler(RatingNotFoundException.class)
+	public ResponseEntity<ErrorMessageDTO> setCutomErrorMessage(RatingNotFoundException e) {
+		
+	}
+}

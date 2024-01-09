@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8087 #8085
 
 
 eureka:
@@ -18,8 +18,8 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: CONFIG-DEFAULT-USERSERVICE
-          uri: lb://CONFIG-DEFAULT-USERSERVICE
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
           predicates:
             - Path=/users/**
 

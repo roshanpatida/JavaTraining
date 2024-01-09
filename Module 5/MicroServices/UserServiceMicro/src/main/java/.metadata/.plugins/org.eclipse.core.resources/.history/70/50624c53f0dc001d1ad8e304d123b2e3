@@ -1,0 +1,15 @@
+server:
+  port: 8081
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://loacalhost:3306/usermicroservice
+    username: root
+    password: brainroot 
+   
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

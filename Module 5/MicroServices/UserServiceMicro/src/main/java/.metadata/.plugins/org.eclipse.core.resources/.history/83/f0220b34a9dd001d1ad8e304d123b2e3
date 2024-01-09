@@ -1,0 +1,24 @@
+package com.rating.entities;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collation = "micro_rating")
+public class Rating {
+	private Long ratingId;
+	private Long userId;
+	private Long hotelId;
+	private int rating;
+	private String feedback;
+}

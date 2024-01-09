@@ -1,0 +1,21 @@
+package com.user.service.interceptors;
+
+import java.io.IOException;
+
+import org.springframework.http.HttpRequest;
+import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
+
+public class RestTemplateInterseptor implements ClientHttpRequestInterceptor {
+
+	private OAuth2AuthorizedClientManager auth2AuthorizedClientManager;
+
+	@Override
+	public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+			throws IOException {
+		return null;
+	}
+
+}
