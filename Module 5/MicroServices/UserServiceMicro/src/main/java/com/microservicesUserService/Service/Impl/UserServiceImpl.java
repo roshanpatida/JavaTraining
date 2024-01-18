@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
 //			ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(),Hotel.class);
 //					Hotel hotel = forEntity.getBody();
 //			//]	
-		
+	 	
 		Hotel hotel = hotelService.getHotels(rating.getHotelId()); // feign client 
 		
 		
