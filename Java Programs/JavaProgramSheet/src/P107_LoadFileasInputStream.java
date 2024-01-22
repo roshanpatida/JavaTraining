@@ -13,7 +13,7 @@ public class P107_LoadFileasInputStream {
       System.out.println("Data in the file: ");
 
      
-      int i = input.read();
+      int i = input.available();
 
       while(i != -1) {
         System.out.print((char)i);

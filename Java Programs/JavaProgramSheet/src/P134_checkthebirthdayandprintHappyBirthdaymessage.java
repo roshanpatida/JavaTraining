@@ -14,7 +14,7 @@ public class P134_checkthebirthdayandprintHappyBirthdaymessage {
 		System.out.println("happy birthday to you");
 	}
    else {
-	   System.out.println("sorry ");
+	   System.out.println("sorryy");
    }
    
 }}

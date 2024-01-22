@@ -1,8 +1,6 @@
 
 public class P100_CallOneConstructorfromanother {
 
-
-
 	  int sum;
 
 	

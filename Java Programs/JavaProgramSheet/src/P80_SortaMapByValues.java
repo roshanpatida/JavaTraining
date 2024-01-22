@@ -24,14 +24,15 @@ public class P80_SortaMapByValues {
 	    // call the sortMap() method to sort the map
 	    Map<String, String> result = sortMap(capitals);
 
-	    for (Map.Entry entry : result.entrySet()) {
-	      System.out.print("Key: " + entry.getKey());
-	      System.out.println(" Value: " + entry.getValue());
-	    }
+	    result.forEach((key, value) -> {
+	        System.out.print("Key: " + key);
+	        System.out.println(" Value: " + value);
+	    });
+
 	  }
 
 	  public static LinkedHashMap sortMap(LinkedHashMap map) {
-		  List <Entry<String, String>> capitalList = new LinkedList<>(map.entrySet());
+		  List <Map.Entry<String, String>> capitalList = new LinkedList<>(map.entrySet());
 	    // call the sort() method of Collections
 	    Collections.sort(capitalList, (l1, l2) -> l1.getValue().compareTo(l2.getValue()));
 
