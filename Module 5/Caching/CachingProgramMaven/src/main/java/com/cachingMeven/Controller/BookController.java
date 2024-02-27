@@ -32,7 +32,7 @@ public class BookController {
 	@PutMapping("/update/{id}")
 	public void updateBook(@PathVariable("id") long id ,@RequestBody Book book) {
 		this.bookService.updateBook(book, id);
-	}
+	}							
 	   @PutMapping("/book")
 	    public Book updateBook(@RequestBody Book book) {
 	        return bookService.updateBook(book);

@@ -39,7 +39,7 @@ public class AuthController {
 
         //creating auth response object
         AuthResponse authResponse = new AuthResponse();
-
+ 
         //setting email to authresponse
         authResponse.setUserId(user.getEmail());
 

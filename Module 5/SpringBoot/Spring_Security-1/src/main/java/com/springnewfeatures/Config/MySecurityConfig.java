@@ -43,7 +43,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 		// it is for BCryp..... password encoder
 		// it convert our password in the toughest hashcode which is not configured byt
 		// another one. it mean it is more secure
-//		auth.inMemoryAuthentication().withUser("Roshan").password(this.passwordEncoder().encode("roshan")).roles("NORMAL");
+//		auth.inMemoryAuthentication().withUser("Roshan").passwz	ord(this.passwordEncoder().encode("roshan")).roles("NORMAL");
 //		auth.inMemoryAuthentication().withUser("hari").password(this.passwordEncoder().encode("321")).roles("ADMIN");
 
 		auth.userDetailsService(customerDetailsService).passwordEncoder(passwordEncoder());

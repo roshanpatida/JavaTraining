@@ -34,7 +34,7 @@ public class MockTest {
 		
 		Book book1 = new Book("123","Spy test double",500,LocalDate.now());
 		Book book2 = new Book("111","Mockito  test double ",500,LocalDate.now());
-	bookService.addBook(book1);
+	bookService.add	Book(book1);
 	bookService.addBook(book2);
 	
 		Mockito.verify(bookServiceMock,Mockito.times(1)).save(book2); // it will called 1 time for save

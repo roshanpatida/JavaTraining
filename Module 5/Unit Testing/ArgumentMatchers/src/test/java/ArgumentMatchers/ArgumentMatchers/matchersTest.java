@@ -84,7 +84,18 @@ public class matchersTest {
 			Book actualBook = bookService.getBookByTitleAndPriceAndIsDigital("JUnit 5 In Action", 600, true);
 			assertEquals("Mockito In Action", actualBook.getTitle());
 		}
+//  int type argument Matchers 
+		public void testIntTypeArgumentMatchers(){
+			Book book = new Book("1234", "Mockito In Action", 600, LocalDate.now());
+			when(bookRepository.findBookByTitleAndPriceAndIsDigital("Mockito In Action",anyInt(),anyBoolean())).thenReturn(book);
+			Book actualBook = bookService.getBookByTitleAndPriceAndIsDigital("Junit 5 in action", 600, true);
+			assertEquals(600, actualBook.getPrice());		
+		}
+
+		
+
 		 }
+
 				
 	
 	

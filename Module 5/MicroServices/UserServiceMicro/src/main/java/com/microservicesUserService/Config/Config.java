@@ -41,7 +41,7 @@ public class Config {
 		return restTemplate;
 	}
 
-	// Declare the bean of the OAuth2AuthorizedClientManager for the interseptor of
+	// Declare the bean of the OAuth2AuthorizedClientManager for the interceptor of
 	// the adding header
 	@Bean
 	public OAuth2AuthorizedClientManager auth2AuthorizedClientManager(

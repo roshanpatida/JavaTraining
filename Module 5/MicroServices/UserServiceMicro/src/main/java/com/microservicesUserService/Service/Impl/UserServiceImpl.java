@@ -39,17 +39,17 @@ public class UserServiceImpl implements UserService {
 		String randomUserId = UUID.randomUUID().toString(); // generate unique useId in string form
 		user.setUserId(randomUserId);
 		return repository.save(user);
-		
+
 	}
 
-	// get all user
+      // get all user
 	@Override
 	public List<User> getAllUser() {
 // implements the restTemplates and get all the users rating. with their data.
 		return repository.findAll();
 	}
 
-	
+
 	// get single user
 	@Override
 	public User getUser(String userId) {
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 				() -> new ResourceNotFoundException("User with given id is not fount on server : " + userId));
 		logger.info("on the way.......");
 // 
-		
+
 		// using restTemplte we use other service.
 		Rating[] ratingOfUser =  restTemplate.getForObject("http://RATING-SERVICE/ratings/users/" + user.getUserId(), Rating[].class);  //dynamic form of
 		
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
 		logger.info("rating is :{} " + ratingOfUser);
 		List<Rating> ratingList = ratings.stream().map(rating -> {
 	
-		
+
 		
 //		//[ " this is for fetch hotel without feign client interface use.
 //			ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTEL-SERVICE/hotels/" + rating.getHotelId(),Hotel.class);
@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateUser(User user, String userId) {
-		// TODO Auto-generated method stub
+		
 		
 
 	}
