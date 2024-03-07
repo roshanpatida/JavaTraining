@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -14,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ecomerse.exception.ProductException;
 import com.ecomerse.model.Category;
@@ -28,6 +31,7 @@ import com.ecomerse.service.UserService;
 @Service
 public class ProductServiceImplementaion implements ProductService {
 
+	Logger logger = LoggerFactory.getLogger(ProductServiceImplementaion.class);
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -37,48 +41,67 @@ public class ProductServiceImplementaion implements ProductService {
 	@Autowired
     private CategoryRepository categoryRepository;
     
-    
+	
 	@Override
+//	@Transactional(rollbackFor = Exception.class)
 	public Product createProduct(CreateProductRequest req) {
 		Category topLevel = categoryRepository.findByName(req.getTopcategory());
-		
+		logger.info("category..{}",topLevel);
 		if(topLevel == null) {
+		
+			String name= req.getTopcategory();
+			logger.info("top : {}",name);
+			String name1 = req.getSecondLevelCategory();
+			logger.info("second : {}",name1);
+			String name2 = req.getThirdLeveCategory();
+			logger.info("third : {} ",name2);
 			Category topLevelCategory = new Category();
+			logger.info("topLevelCategory{}",topLevelCategory);
 			topLevelCategory.setName(req.getTopcategory());
+			logger.info("name - {}",topLevelCategory.getName());
 			topLevelCategory.setLevel(1);
-			
+			logger.info("level - {}",topLevelCategory.getLevel());
 			topLevel=categoryRepository.save(topLevelCategory);
+			logger.info("final save data - {}",topLevel);
+			logger.info("finally saved data for toplevel category......");
 		}
 		
 	
 		Category secondLevel = categoryRepository.findByNameAndParent(req.getSecondLevelCategory(), topLevel.getName());
-		
+		logger.info("second category {}",secondLevel);
 		if(secondLevel ==null) {
-			
+logger.info("second level is null : {}",secondLevel);			
 			Category secondLevelCategory = new Category();
 		secondLevelCategory.setName(req.getSecondLevelCategory());
+		logger.info("second level name : {}",secondLevelCategory.getName());
 		secondLevelCategory.setParentCategory(topLevel);
+		logger.info("parent category : {}",secondLevelCategory.getParentCategory());
 		secondLevelCategory.setLevel(2);
+		logger.info("second level {}",secondLevelCategory.getLevel());
 		
 		secondLevel = categoryRepository.save(secondLevelCategory);
+		logger.info("final saved second level data : {}",secondLevel);
 		}
 		
 		Category thirdLevel = categoryRepository.findByNameAndParent(req.getThirdLeveCategory(), secondLevel.getName());
-		
+		logger.info("third level category : {}", thirdLevel);
 		if(thirdLevel == null) {
-			
+			logger.info("check thirdlevel is null {}",thirdLevel);
 			Category thirdLevelCategory = new Category();
+			logger.info("create object third level category {}",thirdLevelCategory);
 		thirdLevelCategory.setName(req.getThirdLeveCategory());
+		logger.info("third level name : {}",thirdLevelCategory.getName());
 		thirdLevelCategory.setParentCategory(secondLevel);
+		logger.info("parent category : {}",thirdLevelCategory.getParentCategory());
 		thirdLevelCategory.setLevel(3);
-		
+		logger.info("third level : {}",thirdLevelCategory.getLevel());
 		thirdLevel = categoryRepository.save(thirdLevelCategory);
-		
+		logger.info("final save third level category : {}",thirdLevel.toString());
 		}
 		
 		Product product = new Product();
-		
-		product.setTitle(req.getTitle());
+	product.setTitle(req.getTitle());
+
 		product.setColor(req.getColor());
 		product.setDiscription(req.getDescription());
 		product.setDiscountPrice(req.getDiscountedPrice());
@@ -88,11 +111,16 @@ public class ProductServiceImplementaion implements ProductService {
 		product.setPrice(req.getPrice());
 		product.setSizes(req.getSize());
 		product.setQuantity(req.getQuantity());
+		logger.info("thirdlevel : {}",thirdLevel);
 		product.setCategory(thirdLevel);
+		logger.info("final category  : {}",product);
 		product.setCreateAt(LocalDateTime.now());
-		
-		return productRepository.save(product);
-		
+		logger.info("save Poduct succefully.");
+		Product savedProduct = productRepository.save(product);
+		logger.info(" final saved product {}",savedProduct);
+
+		return savedProduct;
+	     	
 		
 	}
 
@@ -126,7 +154,7 @@ public class ProductServiceImplementaion implements ProductService {
 
 	@Override
 	public List<Product> findProductByCategory(String category) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -166,7 +194,9 @@ public class ProductServiceImplementaion implements ProductService {
 
 	@Override
 	public List<Product> findAllProducts() {
+		logger.info("....");
 		List<Product> product = productRepository.findAll();
+		logger.info("product ... : {}",product);
 		return product;
 	}
 

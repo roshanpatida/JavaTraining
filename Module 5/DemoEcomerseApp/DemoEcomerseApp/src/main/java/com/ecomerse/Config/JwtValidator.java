@@ -5,9 +5,11 @@ import java.util.List;
 
 import javax.crypto.SecretKey;
 
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,33 +27,26 @@ public class JwtValidator extends OncePerRequestFilter {
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
+			throws ServletException, IOException, java.io.IOException {
+
+		Logger logger = LoggerFactory.getLogger(JwtValidator.class);
 		String jwt = request.getHeader(JwtContant.JWT_HEADER);
-		
-		if(jwt != null) {
-			jwt=jwt.substring(7);
+		if (jwt != null) {
+			// Bearer abdjabmhb
+			jwt = jwt.substring(7); // extracting bearer
 			try {
 				SecretKey key = Keys.hmacShaKeyFor(JwtContant.SECRET_KEY.getBytes());
-				
 				Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
-				
-				String email =String.valueOf(claims.get("email"));
-				
+				String email = String.valueOf(claims.get("email"));
 				String authorities = String.valueOf(claims.get("authorities"));
-				
 				List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList(authorities);
-				
-				UsernamePasswordAuthenticationToken authentication =  new UsernamePasswordAuthenticationToken(email, null, auths);
-				
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-		
-		
+				Authentication authentication = new UsernamePasswordAuthenticationToken(email, null, auths);
+				SecurityContextHolder.getContext().setAuthentication(authentication);
 			} catch (Exception e) {
-				throw new BadCredentialsException("Invalid Token.... from jwt validator");
+				throw new BadCredentialsException("Invalid tokent from jwt validator");
 			}
 		}
-	
-		filterChain.doFilter(request,response);
+		filterChain.doFilter(request, response);
+		logger.info("...........successfull................");
 	}
-
 }

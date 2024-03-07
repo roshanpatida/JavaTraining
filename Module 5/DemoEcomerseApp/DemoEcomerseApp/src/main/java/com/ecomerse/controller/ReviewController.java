@@ -41,8 +41,8 @@ public class ReviewController {
 		return new ResponseEntity<Review>(review,HttpStatus.CREATED);	
 	}
 	
-	@GetMapping("/product/{[productId}")
-	public ResponseEntity<List<Review>> getproductREview(@PathVariable Long productId)throws UserException,ProductException{
+	@GetMapping("/product/{productId}")
+	public ResponseEntity<List<Review>> getproductReview(@PathVariable Long productId)throws UserException,ProductException{
 		List<Review> reviews = reviewService.getAllReviewName(productId);
 		
 		return new ResponseEntity<>(reviews,HttpStatus.ACCEPTED);

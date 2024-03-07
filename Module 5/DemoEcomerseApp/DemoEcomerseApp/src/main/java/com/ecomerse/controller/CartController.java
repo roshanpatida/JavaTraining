@@ -50,6 +50,7 @@ public class CartController {
 		ApiResponse res = new ApiResponse();
 		res.setMessage("Item added to cart");
 		res.setSuccess(true);
+	    
 		return new ResponseEntity<ApiResponse>(res,HttpStatus.OK);
 	}
 

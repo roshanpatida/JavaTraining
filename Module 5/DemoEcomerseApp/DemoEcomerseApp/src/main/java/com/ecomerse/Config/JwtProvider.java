@@ -1,6 +1,6 @@
 package com.ecomerse.Config;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.crypto.SecretKey;
 
@@ -13,30 +13,22 @@ import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtProvider {
-
 	SecretKey key = Keys.hmacShaKeyFor(JwtContant.SECRET_KEY.getBytes());
-	
-	
-	public String generateToken(Authentication auth) {
+
+	public String generateToken(Authentication authentication) {
 		String jwt = Jwts.builder()
-				.setIssuedAt(new Date(1))
-				.setExpiration(new Date(new Date(1).getTime()+846000000))
-		        .claim("email",auth.getName())
-		        .signWith(key).compact();
-		
-		
+				.setIssuedAt(new Date())
+				.setExpiration(new Date(new Date().getTime()+846000000))
+				.claim("email", authentication.getName()).signWith(key).compact();
+
 		return jwt;
 	}
+
 	public String getEmailFromToken(String jwt) {
-		
 		jwt = jwt.substring(7);
-		
 		Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
-		
-		String email = String.valueOf(claims.get("email"));
-	
-		return email;
-		
+		String email1 = String.valueOf(claims.get("email"));
+		return email1;
+
 	}
-	
 }

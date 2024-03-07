@@ -1,6 +1,5 @@
 package com.ecomerse.service;
 
-import com.ecomerse.exception.CartException;
 import com.ecomerse.exception.CartItemException;
 import com.ecomerse.exception.UserException;
 import com.ecomerse.model.Cart;

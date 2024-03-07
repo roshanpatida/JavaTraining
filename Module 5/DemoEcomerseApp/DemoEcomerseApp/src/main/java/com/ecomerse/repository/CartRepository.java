@@ -10,8 +10,8 @@ import com.ecomerse.model.Cart;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Long>{
 
-	@Query("SELECT c from Cart c Where c.user.id=:userId")
-	public Cart findByUserId(@Param("userId")Long userId);
-	
+	@Query("SELECT c FROM Cart c WHERE c.user.id = :userId")
+	public Cart findByUserId(@Param("userId") Long userId);
+
 	
 }

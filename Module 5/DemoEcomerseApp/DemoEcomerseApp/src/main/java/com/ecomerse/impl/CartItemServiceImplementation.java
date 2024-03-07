@@ -16,6 +16,9 @@ import com.ecomerse.repository.CartRepository;
 import com.ecomerse.service.CartItemService;
 import com.ecomerse.service.UserService;
 
+import ch.qos.logback.classic.Logger;
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class CartItemServiceImplementation implements CartItemService{
 
@@ -34,7 +37,6 @@ public class CartItemServiceImplementation implements CartItemService{
 		cartItem.setQuantity(1);
 		cartItem.setPrice(cartItem.getProduct().getPrice()*cartItem.getQuantity());
 		cartItem.setDiscountPrice(cartItem.getProduct().getDiscountPrice()*cartItem.getQuantity());
-		
 		
 		return cartItemRepository.save(cartItem);
 	}

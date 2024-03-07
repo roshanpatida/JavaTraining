@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecomerse.exception.ProductException;
+import com.ecomerse.impl.ProductServiceImplementaion;
 import com.ecomerse.model.Product;
 import com.ecomerse.service.ProductService;
 
@@ -32,7 +33,7 @@ public class ProductController {
 			@RequestParam Integer pageSize){
 		
 		Page<Product> res = productService.getAllProduct(category, color, size, minPrice, maxPrice, minDiscount, sort, stock, pageNumber, pageSize);
-		
+		//filter product means we can search it. 
 		System.out.println("complete products");
  				return new ResponseEntity<>(res,HttpStatus.ACCEPTED);
 		

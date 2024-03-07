@@ -26,6 +26,9 @@ import com.ecomerse.service.OrderItemService;
 import com.ecomerse.service.OrderService;
 import com.ecomerse.service.ProductService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class OrderServiceImplementation implements OrderService {
 
@@ -97,10 +100,12 @@ public class OrderServiceImplementation implements OrderService {
 
 		for (OrderItem item : orderItems) {
 			item.setOrder(savedOrder);
+			log.info("in the loop : {}",savedOrder);
 			orderItemRepository.save(item);
 		}
-
+log.info("before : {}",savedOrder);
 		return savedOrder;
+		
 	}
 
 	@Override
@@ -157,10 +162,11 @@ public class OrderServiceImplementation implements OrderService {
 	}
 
 	@Override
-	public void deleteOrder(Long orderId) throws OrderException {
+	public Order deleteOrder(Long orderId) throws OrderException {
 // this is fdr admin only 
 		Order order = findOrderById(orderId);
 		orderRepository.deleteById(orderId);
+		return null;
 	}
 
 	@Override

@@ -5,6 +5,13 @@ import java.util.Set;
 
 import com.ecomerse.model.Size;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
 public class CreateProductRequest {
 
 	private String title;
@@ -22,9 +29,12 @@ public class CreateProductRequest {
 	
 	private String imageUrl;
 	
-	private String Topcategory; // man 
 	
-	private String SecondLevelCategory;// clothing mens kurte
+
+	
+	private String topcategory; // man 
+	
+	private String secondLevelCategory;// clothing mens kurte
 	
 	private String thirdLeveCategory; // mens shirt
 
@@ -109,19 +119,19 @@ public class CreateProductRequest {
 	}
 
 	public String getTopcategory() {
-		return Topcategory;
+		return topcategory;
 	}
 
 	public void setTopcategory(String topcategory) {
-		Topcategory = topcategory;
+		this.topcategory = topcategory;
 	}
 
 	public String getSecondLevelCategory() {
-		return SecondLevelCategory;
+		return secondLevelCategory;
 	}
 
 	public void setSecondLevelCategory(String secondLevelCategory) {
-		SecondLevelCategory = secondLevelCategory;
+		this.secondLevelCategory = secondLevelCategory;
 	}
 
 	public String getThirdLeveCategory() {
@@ -132,5 +142,27 @@ public class CreateProductRequest {
 		this.thirdLeveCategory = thirdLeveCategory;
 	}
 
+	public CreateProductRequest(String title, String description, int price, int discountedPrice, int discountPersent,
+			int quantity, String brand, String color, Set<Size> size, String imageUrl, String topcategory,
+			String secondLevelCategory, String thirdLeveCategory) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.price = price;
+		this.discountedPrice = discountedPrice;
+		this.discountPersent = discountPersent;
+		this.quantity = quantity;
+		this.brand = brand;
+		this.color = color;
+		this.size = size;
+		this.imageUrl = imageUrl;
+		this.topcategory = topcategory;
+		this.secondLevelCategory = secondLevelCategory;
+		this.thirdLeveCategory = thirdLeveCategory;
+	}
 
+	public CreateProductRequest() {
+		// TODO Auto-generated constructor stub
+	}
+	
 }

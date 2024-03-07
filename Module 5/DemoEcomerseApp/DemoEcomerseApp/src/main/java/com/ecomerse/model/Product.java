@@ -1,6 +1,5 @@
 package com.ecomerse.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,6 +11,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -22,6 +23,7 @@ public class Product {
 
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String title;
@@ -238,7 +240,7 @@ public class Product {
 
 	public Product(Long id, String title, String discription, int price, int discountPrice, int discountPersent,
 			int quantity, String brand, String color, Set<Size> sizes, String imageUrl, List<Rating> ratings,
-			List<Review> review, int numRatings, Category category, LocalDate createAt) {
+			List<Review> review, int numRatings, Category category, LocalDateTime createdAt) {
 		super();
 		this.id = id;
 		this.title = title;

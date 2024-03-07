@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecomerse.Config.JwtProvider;
 import com.ecomerse.exception.UserException;
+import com.ecomerse.model.Cart;
 import com.ecomerse.model.User;
 import com.ecomerse.repository.UserRepository;
 import com.ecomerse.request.LoginRequest;
 import com.ecomerse.response.AuthResponse;
+import com.ecomerse.service.CartService;
 import com.ecomerse.service.CustomUserServiceImplemetation;
 
 
@@ -45,6 +47,9 @@ public class AuthController {
 	@Autowired
 	private CustomUserServiceImplemetation customUserServiceImplemetation;
 	
+	@Autowired
+	private CartService cartService;
+	
 //	public AuthController(UserRepository userRepository,CustomUserServiceImplemetation customUserServiceImplemetation) {
 //		this.userRepository = userRepository;
 //		this.customUserServiceImplemetation = customUserServiceImplemetation;
@@ -57,6 +62,8 @@ public class AuthController {
 		String password = user.getPassword();
 		String firstString = user.getFirstName();
 		String lastString = user.getLastName();
+		String role = user.getRole();
+		String  mobile =user.getMobile();
 		
 		logger.info("+++++++++++gettng user details");
 		User isEmailExist = userRepository.findByEmail(email);
@@ -73,10 +80,13 @@ public class AuthController {
 		createdUser.setPassword(passwordEncoder.encode(password)); //  before saved user we hash the password using password encoder  // it will getting error beacause encoder password  size will be large so it will not be saved in our created fields.
 		createdUser.setFirstName(firstString);
 		createdUser.setLastName(lastString);
+		createdUser.setRole(role);
+		createdUser.setMobile(mobile);
 		
 				
 		 User savedUser = userRepository.save(createdUser);
 		  logger.info("+++++++++++ saved user details for creating token ");
+		  Cart cart = cartService.createCart(savedUser);
      		
 		Authentication  authentication = new UsernamePasswordAuthenticationToken(savedUser.getEmail(), savedUser.getPassword());
 		

@@ -19,36 +19,32 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Configuration
 public class AppConfig {
-
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-  
-	httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeHttpRequests(Authorize-> Authorize.requestMatchers("/api/**").authenticated().anyRequest().permitAll())
-	.addFilterBefore((Filter) new JwtValidator(), BasicAuthenticationFilter.class).csrf().disable()
-	.cors().configurationSource(new CorsConfigurationSource() {
-		
-		@Override
-		public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-			CorsConfiguration cors= new CorsConfiguration();
-			cors.setAllowedOrigins(Arrays.asList(
+	public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.authorizeHttpRequests(
+						Authorize -> Authorize.requestMatchers("/api/**").authenticated().anyRequest().permitAll())
+				.addFilterBefore(new JwtValidator(), BasicAuthenticationFilter.class).csrf().disable() // jwt Validator
+				.cors().configurationSource(new CorsConfigurationSource() {
 
-					"https://localhost:3000",
-					"http://localhost:8080"));
-			cors.setAllowedMethods(Collections.singletonList("*"));
-			cors.setAllowCredentials(true);
-			cors.setAllowedHeaders(Collections.singletonList("*"));
-			cors.setExposedHeaders(Arrays.asList("Authorization"));
-			cors.setMaxAge(3600L);
-			return cors;
-		}
-	}).and().httpBasic().and().formLogin();
-		
-	
-	return httpSecurity.build();
-}
-	
+					@Override
+					public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+						// TODO Auto-generated method stub
+						CorsConfiguration cfg = new CorsConfiguration();
+						cfg.setAllowedOrigins(Arrays.asList("http://localhost:8080", "http://localhost:4200"));
+						cfg.setAllowedMethods(Collections.singletonList("*"));
+						cfg.setAllowCredentials(true);
+						cfg.setAllowedHeaders(Collections.singletonList("*"));
+						cfg.setExposedHeaders(Arrays.asList("Authorization"));
+						cfg.setMaxAge(3600L);
+						return cfg;
+					}
+				}).and().httpBasic().and().formLogin();
+		return httpSecurity.build();
+	}
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-		return  new BCryptPasswordEncoder();
+		return new BCryptPasswordEncoder();
 	}
 }

@@ -2,6 +2,8 @@ package com.ecomerse.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,7 @@ import com.ecomerse.service.UserService;
 @RequestMapping("/api/orders")
 public class OrderController {
 
+	Logger logger = LoggerFactory.getLogger(OrderController.class); 
 	@Autowired
 	private OrderService orderService;
 
@@ -48,10 +51,10 @@ public class OrderController {
 	@GetMapping("/user")
 	public ResponseEntity<List<Order>> userOrderHistory(@RequestHeader("Authorization")String jwt)throws UserException
 	{
-		User user = userService.findUserProfileByJwt(jwt);
-		
+		User user =  userService.findUserProfileByJwt(jwt);
+		logger.info("users..{}",user);
 		List<Order> orders = orderService.usersOrderHistory(user.getId());
-		
+		logger.info("user{}",orders);
 		
 		return new ResponseEntity<List<Order>>(orders,HttpStatus.CREATED);
 }
@@ -63,7 +66,7 @@ public class OrderController {
 		
 		Order order = orderService.findOrderById(orderId);
 		
-				return new ResponseEntity<Order>(order,HttpStatus.CREATED);
+				return new ResponseEntity<Order>(order,HttpStatus.ACCEPTED);
 		
 	}
 	

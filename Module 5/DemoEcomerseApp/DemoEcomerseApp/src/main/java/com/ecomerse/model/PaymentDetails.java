@@ -1,6 +1,5 @@
 package com.ecomerse.model;
 
-import jakarta.persistence.Entity;
 
 
 public class PaymentDetails {

@@ -14,6 +14,8 @@ import com.ecomerse.service.CartItemService;
 import com.ecomerse.service.CartService;
 import com.ecomerse.service.ProductService;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class CartServiceImplmentation implements CartService {
 
@@ -50,7 +52,8 @@ public class CartServiceImplmentation implements CartService {
 		  int price =  req.getQuantity()*product.getDiscountPrice();
 		  cartItem.setPrice(price);
 		  cartItem.setSize(req.getSize());
-		  
+		  cartItem.setCart(cart);
+		  log.info("cart : {}",cartItem.getCart());
 		  CartItem createdCartItem = cartItemService.createCartItem(cartItem);
 		  
 		  cart.getCartItem().add(createdCartItem);
@@ -73,14 +76,16 @@ public class CartServiceImplmentation implements CartService {
 			totalDiscountPrice += cartItem.getDiscountPrice();
 			totalItem += cartItem.getQuantity(); 
 		}
-		
+		log.info("totalprice : {}",totalPrice);
+		log.info("totaldiscount : {}",totalDiscountPrice);
+		log.info("totalitem : {}",totalItem);
 		cart.setTotalDiscountPrice(totalDiscountPrice);
 		cart.setTotalItem(totalItem);
 		cart.setTotalPrice(totalPrice);
 		cart.setDiscount(totalPrice-totalDiscountPrice);
 		
-		
-		return cartRepository.save(cart);
+						
+		return  cartRepository.save(cart);
 	}
 
 }
