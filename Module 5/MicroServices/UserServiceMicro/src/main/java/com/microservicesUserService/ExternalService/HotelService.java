@@ -12,4 +12,5 @@ public interface HotelService {
 	@GetMapping("/hotels/{hotelId}")
 	Hotel getHotels(@PathVariable String hotelId);
  // we use it and spring boot check this method and provide implementation of this method and called at run time
+
 }

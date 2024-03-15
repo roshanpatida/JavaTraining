@@ -42,14 +42,14 @@ spring:
           okta:
             issuer-uri: https://dev-21763836.okta.com/oauth2/default
             
-#eureka:
+#  prefer-ip-address: trueeureka:
 #  client:
 #    fetch-registry: true
 #    register-with-eureka: true
 #    service-url:
 #      defaultZone: http://localhost:8761/eureka
 #  instance:
-#    prefer-ip-address: true
+#  
 
 management:
   health:

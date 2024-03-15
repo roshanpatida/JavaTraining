@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.microservicesUserService.Entity.Rating;
-import com.microservicesUserService.Entity.Rating.RatingBuilder;
 
-import jakarta.ws.rs.DELETE;
 
 @Service
 @FeignClient(name = "RATING-SERVICE")
